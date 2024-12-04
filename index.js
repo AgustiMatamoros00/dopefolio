@@ -36,3 +36,17 @@ const headerLogoConatiner = document.querySelector('.header__logo-container')
 headerLogoConatiner.addEventListener('click', () => {
   location.href = 'index.html'
 })
+document.getElementById('contactForm').addEventListener('submit', function (event) {
+  // Prevenir que el formulario se envíe de manera predeterminada
+  event.preventDefault();
+
+  // Obtener valores de los campos del formulario
+  const name = encodeURIComponent(document.getElementById('name').value);
+  const email = encodeURIComponent(document.getElementById('email').value);
+  const message = encodeURIComponent(document.getElementById('message').value);
+
+  // Construir el enlace mailto
+  // Asignar dinámicamente el enlace al atributo action y redirigir
+  window.location.href = `mailto:agusti.matamoros20@gmail.com?subject=Message%20from%20${name}&body=Email:%20${email}%0A%0AMessage:%20${message}`;
+});
+
